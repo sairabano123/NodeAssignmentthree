@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+
 const app = express();
 
 const PORT = process.env.PORT;
@@ -15,7 +16,6 @@ const authMiddleware = require('./middleware/authMiddleware');
 const productController = require('./controllers/productController');
 const cartController = require('./controllers/productCartController');
 const checkoutController = require('./controllers/productCheckoutController');
-
 
 // Connect to MongoDB
 mongoose

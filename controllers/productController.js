@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const Product = require('../models/productModel');
 const authMiddleware = require('../middleware/authMiddleware');
@@ -6,7 +7,9 @@ const authMiddleware = require('../middleware/authMiddleware');
 // Add a product
 router.post('/', authMiddleware.authenticate, authMiddleware.authorizeAdmin, async (req, res) => {
   try {
-    const { title, description, price, quantity, category } = req.body;
+    const {
+ title, description, price, quantity, category,
+} = req.body;
 
     // Create a new product
     const newProduct = new Product({
@@ -30,7 +33,9 @@ router.post('/', authMiddleware.authenticate, authMiddleware.authorizeAdmin, asy
 router.put('/:id', authMiddleware.authenticate, authMiddleware.authorizeAdmin, async (req, res) => {
   try {
     const productId = req.params.id;
-    const { title, description, price, quantity, category } = req.body;
+    const {
+ title, description, price, quantity, category,
+} = req.body;
 
     // Check if the product exists
     const product = await Product.findById(productId);

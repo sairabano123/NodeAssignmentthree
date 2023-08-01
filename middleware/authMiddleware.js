@@ -70,10 +70,9 @@ const authorizeUserOrAdmin = async (req, res, next) => {
   }
 };
 
-
 module.exports = {
   authenticate,
   authorizeAdmin,
   authorizeUser,
-  authorizeUserOrAdmin
+  authorizeUserOrAdmin,
 };

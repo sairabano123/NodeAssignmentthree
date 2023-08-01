@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const Cart = require('../models/cartModel');
 const Product = require('../models/productModel');
@@ -34,7 +35,7 @@ router.post('/add-to-cart/:productId', authMiddleware.authenticate, authMiddlewa
     } else {
       // Check if the product already exists in the cart
       const existingProduct = cart.products.find(
-        (item) => item.product.toString() === productId
+        (item) => item.product.toString() === productId,
       );
 
       if (existingProduct) {
